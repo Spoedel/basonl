@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bas Archief - Christianity PDF Archive">
+    <title>Bas Archief</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            flex: 1;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        /* Enhanced Search Bar */
+        #searchBar {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        #searchBar:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 8px 0;
+        }
+        ul li a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        ul li a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            header {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .container {
+                padding: 15px;
+            }
+            #searchBar {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+    <script>
+        function searchPDFs() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let pdfList = document.getElementsByTagName('li');
+            for (let i = 0; i < pdfList.length; i++) {
+                let a = pdfList[i].getElementsByTagName('a')[0];
+                let txtValue = a.textContent || a.innerText;
+                pdfList[i].style.display = txtValue.toLowerCase().indexOf(input) > -1 ? '' : 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Bas Archief</h1>
+        <p>Welcome to the archive of Christianity PDF resources</p>
+    </header>
+
+    <div class="container">
+        <input type="text" id="searchBar" onkeyup="searchPDFs()" placeholder="Search for PDF files..." />
+        
+        <ul id="pdfList">
+            <!-- PDF links -->
+            <li><a href="/pdfs/document_1" target="_blank">Bible Study Guide</a></li>
+            <li><a href="/pdfs/document_2" target="_blank">Introduction to Christian Theology</a></li>
+            <li><a href="/pdfs/document_3" target="_blank">History of the Early Church</a></li>
+            <li><a href="/pdfs/document_4" target="_blank">Prayers for Daily Devotion</a></li>
+            <li><a href="/pdfs/document_5" target="_blank">Understanding the Trinity</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Bas Archief. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
